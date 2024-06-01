@@ -21,6 +21,30 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/lib/code/double-label-button.jsx",
+    "src/lib/code/push-button.jsx",
+    "src/lib/code/text-fill-up-button1.jsx",
+    "src/lib/code/text-fill-up-button2.jsx",
+    "src/lib/code/text-fill-up-button3.jsx",
+    "src/lib/code/text-fill-up-button4.jsx",
+    "src/lib/code/fill-up-button1.jsx",
+    "src/lib/code/fill-up-button2.jsx",
+    "src/lib/code/fill-up-button3.jsx",
+    "src/lib/code/stripe-effect-button.jsx",
+    "src/lib/code/gradient-glow-button.jsx",
+    "src/lib/code/squiggly-button.jsx",
+    "src/lib/code/wavy-text-slideup-button.jsx",
+    "src/lib/code/double-fill-button.jsx",
+    "src/lib/code/stacked-button.jsx",
+    "src/lib/code/marquee-button.jsx",
+    "src/lib/code/glowing-text-slideup-button.jsx",
+    "src/lib/code/redneck-button.jsx",
+    "src/lib/code/flowchef-button.jsx"
+  ],
   "exclude": ["node_modules"]
 }

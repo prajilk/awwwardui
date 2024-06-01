@@ -1,18 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { VariantProps, cva } from "class-variance-authority";
-import { ButtonHTMLAttributes, PropsWithChildren, useState } from "react";
+import { cva } from "class-variance-authority";
+import { useState } from "react";
 import { motion } from "framer-motion";
-
-type TextFillUpButton1Props = ButtonHTMLAttributes<HTMLButtonElement> &
-  PropsWithChildren &
-  VariantProps<typeof buttonVariants> & {
-    className?: string;
-    classNames?: {
-      filler: string;
-    };
-  };
 
 const buttonVariants = cva(
   "relative group flex justify-center items-center text-black rounded-xl border border-black overflow-hidden",
@@ -22,7 +13,7 @@ const buttonVariants = cva(
         default: "px-5 py-3 text-sm",
         sm: "px-4 py-3 text-xs",
         lg: "px-6 py-4 text-lg",
-        icon: "size-10",
+        icon: "size-10 rounded-full",
       },
     },
     defaultVariants: {
@@ -37,7 +28,7 @@ const TextFillUpButton1 = ({
   className,
   classNames,
   ...props
-}: TextFillUpButton1Props) => {
+}) => {
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseEnter = () => {

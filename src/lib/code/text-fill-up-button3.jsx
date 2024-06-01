@@ -1,12 +1,5 @@
 import { cn } from "@/lib/utils/cn";
-import { VariantProps, cva } from "class-variance-authority";
-import { ButtonHTMLAttributes, PropsWithChildren } from "react";
-
-type TextFillUpButton3Props = ButtonHTMLAttributes<HTMLButtonElement> &
-  PropsWithChildren &
-  VariantProps<typeof buttonVariants> & {
-    className?: string;
-  };
+import { cva } from "class-variance-authority";
 
 const buttonVariants = cva(
   "group relative flex items-center justify-center overflow-hidden rounded-full bg-[#0A3CCE] uppercase text-white [transition:background_.6s,color_cubic-bezier(.87,0,.13,1)_.6s]",
@@ -24,12 +17,7 @@ const buttonVariants = cva(
   },
 );
 
-const TextFillUpButton3 = ({
-  children,
-  size,
-  className,
-  ...props
-}: TextFillUpButton3Props) => {
+const TextFillUpButton3 = ({ children, size, className, ...props }) => {
   return (
     <button
       {...props}

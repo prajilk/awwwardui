@@ -4,19 +4,19 @@ import PushButton from "@/components/buttons/push-button";
 import WavyButton from "@/components/buttons/wavy-button";
 import WavyTextSlideUpButton from "@/components/buttons/wavy-text-slideup-button";
 import { ArrowRight } from "lucide-react";
-import FillUpButton1 from "@/components/buttons/fill-up-button-1";
-import FillUpButton2 from "@/components/buttons/fill-up-button-2";
+import FillUpButton1 from "@/components/buttons/fill-up-button1";
+import FillUpButton2 from "@/components/buttons/fill-up-button2";
 import GlowingTextSlideUpButton from "@/components/buttons/glowing-text-slideup-button";
 import TextFillUpButton2 from "@/components/buttons/text-fill-up-button2";
 import StripeEffectButton from "@/components/buttons/stripe-effect-button";
-import GradientGlowButton from "@/components/buttons/gradiant-glow-button";
+import GradientGlowButton from "@/components/buttons/gradient-glow-button";
 import SquigglyButton from "@/components/buttons/squiggly-button";
 import DoubleFillButton from "@/components/buttons/double-fill-button";
 import TextFillUpButton3 from "@/components/buttons/text-fill-up-button3";
 import MagneticButtonWrapper from "@/components/buttons/magnetic-button-wrapper";
 import StackedButton from "@/components/buttons/stacked-button";
 import MarqueeButton from "@/components/buttons/marquee-button";
-import FillUpButton3 from "@/components/buttons/fill-up-button-3";
+import FillUpButton3 from "@/components/buttons/fill-up-button3";
 import RedneckButton from "@/components/buttons/redneck-button";
 import FlowchefButton from "@/components/buttons/flowchef-button";
 import TextFillUpButton4 from "@/components/buttons/text-fill-up-button4";
@@ -33,7 +33,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Wavy Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/wavy-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -51,7 +51,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Double label Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/double-label-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -67,7 +67,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Push Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/push-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -83,7 +83,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Text Fill up Buttons 1</h3>
           <Link
-            href={"/"}
+            href={"/buttons/text-fill-up-buttons1"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -99,7 +99,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Text Fill up Buttons 2</h3>
           <Link
-            href={"/"}
+            href={"/buttons/text-fill-up-buttons2"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -115,7 +115,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Text Fill up Buttons 3</h3>
           <Link
-            href={"/"}
+            href={"/buttons/text-fill-up-buttons3"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -131,7 +131,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Text Fill up Buttons 4</h3>
           <Link
-            href={"/"}
+            href={"/buttons/text-fill-up-buttons4"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -147,7 +147,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Fill up Buttons 1</h3>
           <Link
-            href={"/"}
+            href={"/buttons/fill-up-buttons1"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -163,7 +163,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Fill up Buttons 2</h3>
           <Link
-            href={"/"}
+            href={"/buttons/fill-up-buttons2"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -179,7 +179,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Fill up Buttons 3</h3>
           <Link
-            href={"/"}
+            href={"/buttons/fill-up-buttons3"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -195,7 +195,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Stripe Effect Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/stripe-effect-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -211,7 +211,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Gradient Glow Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/gradient-glow-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -227,7 +227,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Squiggly Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/squiggly-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -243,7 +243,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Wavy Text Slide up Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/wavy-text-slideup-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -259,7 +259,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Double Fill Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/double-fill-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -275,7 +275,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Stacked Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/stacked-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -291,7 +291,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Marquee Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/marquee-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -307,7 +307,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Glowing Text Slide Up Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/glowing-text-slideup-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -323,7 +323,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Redneck Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/redneck-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code
@@ -339,7 +339,7 @@ export default function Buttons() {
         <div className="flex flex-col gap-3">
           <h3 className="text-xl font-medium">Flowchef Buttons</h3>
           <Link
-            href={"/"}
+            href={"/buttons/flowchef-buttons"}
             className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
           >
             Get code

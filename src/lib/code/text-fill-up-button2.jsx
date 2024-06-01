@@ -1,27 +1,18 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { motion } from "framer-motion";
-import { ButtonHTMLAttributes, PropsWithChildren, useState } from "react";
-
-type DoubleLabelButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  PropsWithChildren &
-  VariantProps<typeof buttonVariants> & {
-    classNames?: {
-      innerWrapper: string;
-    };
-  };
+import { useState } from "react";
 
 const buttonVariants = cva(
-  "relative flex items-center justify-center overflow-hidden rounded-md border border-black uppercase text-black",
+  "text-black border border-black rounded-full uppercase overflow-hidden relative",
   {
     variants: {
       size: {
         default: "px-5 py-3 text-sm",
         sm: "px-4 py-3 text-xs",
         lg: "px-6 py-4 text-lg",
-        icon: "size-10",
       },
     },
     defaultVariants: {
@@ -31,26 +22,30 @@ const buttonVariants = cva(
 );
 
 const innerLabelWrapperVariants = {
-  initial: { height: 0, marginBottom: "4px", width: "80%" },
-  animate: { height: "101%", marginBottom: 0, width: "101%" },
+  initial: { height: 0 },
+  animate: { height: "101%" },
 };
 
 const innerLabelVariants = {
-  initial: { y: "20px" },
-  animate: { y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+  initial: { y: "20px", opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 0.05, duration: 0.3, ease: "easeInOut" },
+  },
 };
 
 const outerLabelVariants = {
   animate: { y: "-20px" },
 };
 
-const DoubleLabelButton = ({
+const TextFillUpButton2 = ({
   children,
   size,
   className,
   classNames,
   ...props
-}: DoubleLabelButtonProps) => {
+}) => {
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseEnter = () => {
@@ -66,20 +61,20 @@ const DoubleLabelButton = ({
       {...props}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onFocus={handleMouseEnter}
-      onBlur={handleMouseLeave}
-      className={cn(
-        buttonVariants({
-          size,
-          className,
-        }),
-      )}
+      className={cn(buttonVariants({ size, className }))}
     >
       {/* Outer Label */}
       <span className="relative block overflow-hidden">
         <motion.span
           variants={outerLabelVariants}
-          animate={isHover ? "animate" : { y: 0, transition: { delay: 0.1 } }}
+          animate={
+            isHover
+              ? "animate"
+              : {
+                  y: 0,
+                  transition: { ease: "easeInOut", delay: 0.05 },
+                }
+          }
           className="relative flex items-center gap-2"
         >
           {children}
@@ -92,7 +87,7 @@ const DoubleLabelButton = ({
         initial="initial"
         animate={isHover ? "animate" : ""}
         className={cn(
-          "absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-center overflow-hidden rounded-md bg-black text-white",
+          "absolute bottom-0 left-0 right-0 flex w-full items-center justify-center overflow-hidden bg-black text-white",
           classNames?.innerWrapper,
         )}
       >
@@ -112,4 +107,4 @@ const DoubleLabelButton = ({
   );
 };
 
-export default DoubleLabelButton;
+export default TextFillUpButton2;

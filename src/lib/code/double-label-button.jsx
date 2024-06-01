@@ -1,27 +1,18 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { motion } from "framer-motion";
-import { ButtonHTMLAttributes, PropsWithChildren, useState } from "react";
-
-type DoubleLabelButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  PropsWithChildren &
-  VariantProps<typeof buttonVariants> & {
-    classNames?: {
-      innerWrapper: string;
-    };
-  };
+import { useState } from "react";
 
 const buttonVariants = cva(
-  "relative flex items-center justify-center overflow-hidden rounded-md border border-black uppercase text-black",
+  "text-black border border-black rounded-md uppercase overflow-hidden relative",
   {
     variants: {
       size: {
         default: "px-5 py-3 text-sm",
         sm: "px-4 py-3 text-xs",
         lg: "px-6 py-4 text-lg",
-        icon: "size-10",
       },
     },
     defaultVariants: {
@@ -50,7 +41,7 @@ const DoubleLabelButton = ({
   className,
   classNames,
   ...props
-}: DoubleLabelButtonProps) => {
+}) => {
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseEnter = () => {
@@ -68,12 +59,7 @@ const DoubleLabelButton = ({
       onMouseLeave={handleMouseLeave}
       onFocus={handleMouseEnter}
       onBlur={handleMouseLeave}
-      className={cn(
-        buttonVariants({
-          size,
-          className,
-        }),
-      )}
+      className={cn(buttonVariants({ size, className }))}
     >
       {/* Outer Label */}
       <span className="relative block overflow-hidden">
