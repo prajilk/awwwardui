@@ -3,8 +3,8 @@ import { readFileAsString } from "../../../../lib/utils/readFile";
 import path from "path";
 import CopyCode from "@/components/copy-code";
 import { cnJsCode, cnTsCode } from "@/lib/code/cn-code";
-import GradientGlowButton from "@/components/buttons/gradient-glow-button";
-import { ArrowRight } from "lucide-react";
+import { Menu } from "lucide-react";
+import MagneticButton from "@/components/buttons/magnetic-button";
 
 const tailwindConfigTs = `import type { Config } from "tailwindcss";
 
@@ -16,15 +16,8 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      animation: {
-        glowing: "glowing 20s linear infinite"
-      },
-      keyframes: {
-        glowing: {
-          "0%": { backgroundPosition: "0 0" },
-          "50%": { backgroundPosition: "400% 0" },
-          "100%": { backgroundPosition: "0" },
-        }
+      transitionTimingFunction: {
+        "elastic-out": "var(--elastic-out)",
       },
     },
   },
@@ -43,49 +36,80 @@ module.exports = {
   ],
   theme: {
     extend: {
-      animation: {
-        glowing: "glowing 20s linear infinite"
-      },
-      keyframes: {
-        glowing: {
-          "0%": { backgroundPosition: "0 0" },
-          "50%": { backgroundPosition: "400% 0" },
-          "100%": { backgroundPosition: "0" },
-        }
+      transitionTimingFunction: {
+        "elastic-out": "var(--elastic-out)",
       },
     },
   },
   plugins: []
 }`;
 
-const usageCode = `import GradientGlowButton from "@/components/ui/gradient-glow-button";
+const usageCode = `import MagneticButton from "@/components/ui/magnetic-button";
 
 const App = () => {
   return (
-    <GradientGlowButton size={"default"}>Follow us</GradientGlowButton>
+    <MagneticButton size={"default"}>Magnetic button</MagneticButton>
   )
 }
 
 export default App;`;
 
+const customEase = `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --elastic-out: linear(
+      0,
+      0.2178 2.1%,
+      1.1144 8.49%,
+      1.2959 10.7%,
+      1.3463 11.81%,
+      1.3705 12.94%,
+      1.3726,
+      1.3643 14.48%,
+      1.3151 16.2%,
+      1.0317 21.81%,
+      0.941 24.01%,
+      0.8912 25.91%,
+      0.8694 27.84%,
+      0.8698 29.21%,
+      0.8824 30.71%,
+      1.0122 38.33%,
+      1.0357,
+      1.046 42.71%,
+      1.0416 45.7%,
+      0.9961 53.26%,
+      0.9839 57.54%,
+      0.9853 60.71%,
+      1.0012 68.14%,
+      1.0056 72.24%,
+      0.9981 86.66%,
+      1
+    );
+  }
+}
+`;
+
 const WavyButtonsPage = () => {
   const tsCode = readFileAsString(
-    path.resolve("./src/components/buttons/gradient-glow-button.tsx"),
+    path.resolve("./src/components/buttons/magnetic-button.tsx"),
   );
   const jsCode = readFileAsString(
-    path.resolve("./src/lib/code/gradient-glow-button.jsx"),
+    path.resolve("./src/lib/code/magnetic-button.jsx"),
   );
 
   return (
     <div>
       <h1 className="mb-5 mt-10 text-xl font-semibold">Example</h1>
-      <div className="grid place-items-center gap-10 rounded-md bg-neutral-700 py-10">
-        <GradientGlowButton size={"icon"}>
-          <ArrowRight />
-        </GradientGlowButton>
-        <GradientGlowButton size={"sm"}>Follow us</GradientGlowButton>
-        <GradientGlowButton>Follow us</GradientGlowButton>
-        <GradientGlowButton size={"lg"}>Follow us</GradientGlowButton>
+      <div className="grid place-items-center gap-10 rounded-md bg-neutral-900 py-10">
+        <MagneticButton size={"icon"}>
+          <Menu />
+        </MagneticButton>
+        <MagneticButton size={"sm"}>Magnetic button</MagneticButton>
+        <MagneticButton>Magnetic button</MagneticButton>
+        <MagneticButton size={"lg"}>Magnetic button</MagneticButton>
       </div>
       <h1 className="mb-5 mt-10 text-xl font-semibold">Usage</h1>
       <CodeViewer
@@ -100,8 +124,8 @@ const WavyButtonsPage = () => {
       <p className="mb-5 mt-1">Install necessary packages.</p>
       <code className="relative my-3 block rounded-md bg-neutral-900 p-3">
         <span className="text-[#60ADEC]">npm install</span>{" "}
-        class-variance-authority clsx tailwind-merge
-        <CopyCode code="npm install class-variance-authority clsx tailwind-merge" />
+        class-variance-authority clsx tailwind-merge framer-motion
+        <CopyCode code="npm install class-variance-authority clsx tailwind-merge framer-motion" />
       </code>
 
       <h2 className="mb-5 mt-10 text-lg font-semibold">Create cn function</h2>
@@ -113,6 +137,17 @@ const WavyButtonsPage = () => {
           jsCode={cnJsCode}
         />
       </div>
+
+      <h1 className="mb-5 mt-10 text-xl font-semibold">
+        Add custom ease in css file.
+      </h1>
+      <CodeViewer
+        jsCode={customEase}
+        tsCode={customEase}
+        filePath="global.css"
+        language="css"
+        showLanguageSelect={false}
+      />
 
       <h1 className="mt-10 text-xl font-semibold">Tailwind config code</h1>
       <p className="mb-5 mt-1">Modify the config file to add animations.</p>
@@ -126,7 +161,7 @@ const WavyButtonsPage = () => {
       <CodeViewer
         jsCode={jsCode}
         tsCode={tsCode}
-        filePath="components/ui/gradient-glow-button.tsx"
+        filePath="components/ui/magnetic-button.tsx"
       />
     </div>
   );

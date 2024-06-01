@@ -21,10 +21,27 @@ import RedneckButton from "@/components/buttons/redneck-button";
 import FlowchefButton from "@/components/buttons/flowchef-button";
 import TextFillUpButton4 from "@/components/buttons/text-fill-up-button4";
 import Link from "next/link";
+import MagneticButton from "@/components/buttons/magnetic-button";
 
 export default function Buttons() {
   return (
     <div className="grid gap-5 py-5 md:grid-cols-2 lg:grid-cols-3">
+      {/* Card 0 */}
+      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
+        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-950">
+          <MagneticButton>Magnetic button</MagneticButton>
+        </div>
+        <div className="flex flex-col gap-3">
+          <h3 className="text-xl font-medium">Magnetic Buttons</h3>
+          <Link
+            href={"/buttons/magnetic-buttons"}
+            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
+          >
+            Get code
+          </Link>
+        </div>
+      </div>
+
       {/* Card 1 */}
       <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
         <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">

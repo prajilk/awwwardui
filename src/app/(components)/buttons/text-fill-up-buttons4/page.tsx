@@ -37,6 +37,7 @@ const WavyButtonsPage = () => {
         tsCode={usageCode}
         filePath="page.tsx"
         isLongCode={false}
+        showLanguageSelect={false}
       />
 
       <h2 className="mt-10 text-lg font-semibold">Install packages</h2>

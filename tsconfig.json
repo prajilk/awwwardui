@@ -44,7 +44,8 @@
     "src/lib/code/marquee-button.jsx",
     "src/lib/code/glowing-text-slideup-button.jsx",
     "src/lib/code/redneck-button.jsx",
-    "src/lib/code/flowchef-button.jsx"
+    "src/lib/code/flowchef-button.jsx",
+    "src/lib/code/magnetic-button.jsx"
   ],
   "exclude": ["node_modules"]
 }

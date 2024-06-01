@@ -13,6 +13,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      transitionTimingFunction: {
+        "elastic-out": "var(--elastic-out)",
+      },
       animation: {
         glow: "glow 2s ease-in-out infinite",
         wavy: "wavy 0.8s ease-in-out infinite",

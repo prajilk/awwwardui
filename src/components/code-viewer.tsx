@@ -10,11 +10,15 @@ const CodeViewer = ({
   tsCode,
   filePath,
   isLongCode = true,
+  language = "tsx",
+  showLanguageSelect = true,
 }: {
   jsCode: string;
   tsCode: string;
   filePath: string;
   isLongCode?: boolean;
+  language?: string;
+  showLanguageSelect?: boolean;
 }) => {
   const [isFullView, setIsFullView] = useState(!isLongCode);
   const [isTsSelected, setIsTsSelected] = useState(true);
@@ -23,20 +27,22 @@ const CodeViewer = ({
     <div className="w-full rounded-lg bg-neutral-900">
       <div className="flex w-full items-center justify-between rounded-t-lg bg-neutral-700 px-5 py-3">
         <span className="text-neutral-500-400 text-sm">{filePath}</span>
-        <select
-          defaultValue={isTsSelected ? "typescript" : "javascript"}
-          onChange={(e) => setIsTsSelected(e.target.value === "typescript")}
-          className="flex items-center gap-2 rounded-md bg-neutral-900 px-2 py-1 text-xs"
-        >
-          <option value="typescript">Typescript</option>
-          <option value="javascript">Javascript</option>
-        </select>
+        {showLanguageSelect && (
+          <select
+            defaultValue={isTsSelected ? "typescript" : "javascript"}
+            onChange={(e) => setIsTsSelected(e.target.value === "typescript")}
+            className="flex items-center gap-2 rounded-md bg-neutral-900 px-2 py-1 text-xs"
+          >
+            <option value="typescript">Typescript</option>
+            <option value="javascript">Javascript</option>
+          </select>
+        )}
       </div>
       <div
         className={`${isFullView ? "h-auto after:hidden" : "h-80 after:block"} relative overflow-hidden rounded-b-lg after:absolute after:inset-0 after:size-full after:bg-gradient-to-t after:from-black after:to-transparent`}
       >
         <SyntaxHighlighter
-          language="tsx"
+          language={language}
           style={vscDarkPlus}
           showLineNumbers
           customStyle={{
