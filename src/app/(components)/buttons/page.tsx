@@ -13,7 +13,6 @@ import GradientGlowButton from "@/components/buttons/gradient-glow-button";
 import SquigglyButton from "@/components/buttons/squiggly-button";
 import DoubleFillButton from "@/components/buttons/double-fill-button";
 import TextFillUpButton3 from "@/components/buttons/text-fill-up-button3";
-import MagneticButtonWrapper from "@/components/buttons/magnetic-button-wrapper";
 import StackedButton from "@/components/buttons/stacked-button";
 import MarqueeButton from "@/components/buttons/marquee-button";
 import FillUpButton3 from "@/components/buttons/fill-up-button3";
@@ -22,349 +21,166 @@ import FlowchefButton from "@/components/buttons/flowchef-button";
 import TextFillUpButton4 from "@/components/buttons/text-fill-up-button4";
 import Link from "next/link";
 import MagneticButton from "@/components/buttons/magnetic-button";
+import { cn } from "@/lib/utils/cn";
+
+const buttons = [
+  {
+    component: <MagneticButton>Magnetic Button</MagneticButton>,
+    title: "Magnetic Button",
+    url: "/magnetic-buttons",
+    bg: "bg-neutral-950",
+  },
+  {
+    component: <WavyButton>discover our commitments</WavyButton>,
+    title: "Wavy Buttons",
+    url: "/wavy-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: (
+      <DoubleLabelButton>
+        Explore collection <ArrowRight size={20} />
+      </DoubleLabelButton>
+    ),
+    title: "Double label Buttons",
+    url: "/double-label-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <PushButton size={"sm"}>Identify my situation</PushButton>,
+    title: "Push Buttons",
+    url: "/push-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <TextFillUpButton1>About us</TextFillUpButton1>,
+    title: "Text Fill up Buttons 1",
+    url: "/text-fill-up-buttons1",
+    bg: "bg-white",
+  },
+  {
+    component: <TextFillUpButton2>Go to home</TextFillUpButton2>,
+    title: "Text Fill up Buttons 2",
+    url: "/text-fill-up-buttons2",
+    bg: "bg-white",
+  },
+  {
+    component: <TextFillUpButton3>Go to home</TextFillUpButton3>,
+    title: "Text Fill up Buttons 3",
+    url: "/text-fill-up-buttons3",
+    bg: "bg-white",
+  },
+  {
+    component: <TextFillUpButton4>view all posts</TextFillUpButton4>,
+    title: "Text Fill up Buttons 4",
+    url: "/text-fill-up-buttons4",
+    bg: "bg-neutral-950",
+  },
+  {
+    component: <FillUpButton1>See how it works</FillUpButton1>,
+    title: "Fill up Buttons 1",
+    url: "/fill-up-buttons1",
+    bg: "bg-white",
+  },
+  {
+    component: <FillUpButton2>Check this out</FillUpButton2>,
+    title: "Fill up Buttons 2",
+    url: "/fill-up-buttons2",
+    bg: "bg-white",
+  },
+  {
+    component: <FillUpButton3>Download now</FillUpButton3>,
+    title: "Fill up Buttons 3",
+    url: "/fill-up-buttons3",
+    bg: "bg-white",
+  },
+  {
+    component: <StripeEffectButton>Our excellent reviews</StripeEffectButton>,
+    title: "Stripe Effect Buttons",
+    url: "/stripe-effect-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <GradientGlowButton>Follow us</GradientGlowButton>,
+    title: "Gradient Glow Buttons",
+    url: "/gradient-glow-buttons",
+    bg: "bg-neutral-700",
+  },
+  {
+    component: <SquigglyButton>Download now</SquigglyButton>,
+    title: "Squiggly Buttons",
+    url: "/squiggly-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <WavyTextSlideUpButton>Get the font</WavyTextSlideUpButton>,
+    title: "Wavy Text Slide Up Buttons",
+    url: "/wavy-text-slideup-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <DoubleFillButton>Try for free</DoubleFillButton>,
+    title: "Double Fill Buttons",
+    url: "/double-fill-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <StackedButton>Learn more</StackedButton>,
+    title: "Stacked Buttons",
+    url: "/stacked-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <MarqueeButton>Book a demo</MarqueeButton>,
+    title: "Marquee Buttons",
+    url: "/marquee-buttons",
+    bg: "bg-white",
+  },
+  {
+    component: <GlowingTextSlideUpButton>Buy now</GlowingTextSlideUpButton>,
+    title: "Glowing Text Slide Up Buttons",
+    url: "/glowing-text-slideup-buttons",
+    bg: "bg-neutral-950",
+  },
+  {
+    component: <RedneckButton>View projects</RedneckButton>,
+    title: "Redneck Buttons",
+    url: "/redneck-buttons",
+    bg: "bg-neutral-950",
+  },
+  {
+    component: <FlowchefButton>Original website</FlowchefButton>,
+    title: "Flowchef Buttons",
+    url: "/flowchef-buttons",
+    bg: "bg-neutral-950",
+  },
+];
 
 export default function Buttons() {
   return (
     <div className="grid gap-5 py-5 md:grid-cols-2 lg:grid-cols-3">
-      {/* Card 0 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-950">
-          <MagneticButton>Magnetic button</MagneticButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Magnetic Buttons</h3>
-          <Link
-            href={"/buttons/magnetic-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
+      {buttons.map((button, i) => (
+        <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3" key={i}>
+          <div
+            className={cn(
+              "flex aspect-video w-full items-center justify-center rounded-md",
+              button.bg,
+            )}
           >
-            Get code
-          </Link>
+            {button.component}
+          </div>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xl font-medium">{button.title}</h3>
+            <Link
+              href={`/buttons${button.url}`}
+              className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
+            >
+              Get code
+            </Link>
+          </div>
         </div>
-      </div>
+      ))}
 
-      {/* Card 1 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <WavyButton>discover our commitments</WavyButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Wavy Buttons</h3>
-          <Link
-            href={"/buttons/wavy-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 2 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <DoubleLabelButton>
-            Explore collection <ArrowRight size={20} />
-          </DoubleLabelButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Double label Buttons</h3>
-          <Link
-            href={"/buttons/double-label-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 3 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <PushButton size={"sm"}>Identify my situation</PushButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Push Buttons</h3>
-          <Link
-            href={"/buttons/push-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 4 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <TextFillUpButton1>About us</TextFillUpButton1>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Text Fill up Buttons 1</h3>
-          <Link
-            href={"/buttons/text-fill-up-buttons1"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 5 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <TextFillUpButton2>Go to home</TextFillUpButton2>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Text Fill up Buttons 2</h3>
-          <Link
-            href={"/buttons/text-fill-up-buttons2"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 6 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <TextFillUpButton3>Go to home</TextFillUpButton3>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Text Fill up Buttons 3</h3>
-          <Link
-            href={"/buttons/text-fill-up-buttons3"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 7 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-950">
-          <TextFillUpButton4>view all posts</TextFillUpButton4>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Text Fill up Buttons 4</h3>
-          <Link
-            href={"/buttons/text-fill-up-buttons4"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 8 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <FillUpButton1>See how it works</FillUpButton1>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Fill up Buttons 1</h3>
-          <Link
-            href={"/buttons/fill-up-buttons1"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 9 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <FillUpButton2>Check this out</FillUpButton2>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Fill up Buttons 2</h3>
-          <Link
-            href={"/buttons/fill-up-buttons2"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 10 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <FillUpButton3>Download now</FillUpButton3>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Fill up Buttons 3</h3>
-          <Link
-            href={"/buttons/fill-up-buttons3"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 11 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <StripeEffectButton>Our excellent reviews</StripeEffectButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Stripe Effect Buttons</h3>
-          <Link
-            href={"/buttons/stripe-effect-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 12 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-700">
-          <GradientGlowButton>Follow us</GradientGlowButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Gradient Glow Buttons</h3>
-          <Link
-            href={"/buttons/gradient-glow-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 13 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <SquigglyButton>Download now</SquigglyButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Squiggly Buttons</h3>
-          <Link
-            href={"/buttons/squiggly-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 14 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <WavyTextSlideUpButton>Get the font</WavyTextSlideUpButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Wavy Text Slide up Buttons</h3>
-          <Link
-            href={"/buttons/wavy-text-slideup-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 15 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <DoubleFillButton>Try for free</DoubleFillButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Double Fill Buttons</h3>
-          <Link
-            href={"/buttons/double-fill-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 16 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <StackedButton>Learn more</StackedButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Stacked Buttons</h3>
-          <Link
-            href={"/buttons/stacked-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 17 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-white">
-          <MarqueeButton>Book a demo</MarqueeButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Marquee Buttons</h3>
-          <Link
-            href={"/buttons/marquee-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 18 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-900">
-          <GlowingTextSlideUpButton>Buy now</GlowingTextSlideUpButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Glowing Text Slide Up Buttons</h3>
-          <Link
-            href={"/buttons/glowing-text-slideup-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 19 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-900">
-          <RedneckButton>View projects</RedneckButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Redneck Buttons</h3>
-          <Link
-            href={"/buttons/redneck-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 20 */}
-      <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
-        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-900">
-          <FlowchefButton>Original website</FlowchefButton>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-medium">Flowchef Buttons</h3>
-          <Link
-            href={"/buttons/flowchef-buttons"}
-            className="self-end rounded-md bg-neutral-800 px-3 py-2 font-semibold transition-colors duration-300 hover:bg-neutral-700"
-          >
-            Get code
-          </Link>
-        </div>
-      </div>
-
-      {/* Card 21 */}
       <div className="w-full space-y-4 rounded-md bg-neutral-900 p-3">
         <div className="flex aspect-video w-full items-center justify-center rounded-md bg-neutral-900">
           Coming soon.
