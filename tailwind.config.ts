@@ -24,6 +24,7 @@ const config: Config = {
         "text-marquee": "text-marquee 2s linear infinite forwards",
         "text-rollup": "rollup cubic-bezier(0.4, 0, 0.2, 1) 0.5s",
         "text-rolldown": "rolldown cubic-bezier(0.4, 0, 0.2, 1) 0.5s",
+        "shimmer-text": "shimmer-text .2s linear",
       },
       keyframes: {
         glow: {
@@ -87,6 +88,17 @@ const config: Config = {
           "100%": {
             transform: "translateY(0%)",
             opacity: "1",
+          },
+        },
+        "shimmer-text": {
+          "0%": {
+            filter: "blur(0px)"
+          },
+          "50%": {
+            filter: "blur(3px)"
+          },
+          "100%": {
+            filter: "blur(0px)"
           },
         },
       },

@@ -3,7 +3,7 @@ import TextFillUpButton1 from "@/components/buttons/text-fill-up-button1";
 import PushButton from "@/components/buttons/push-button";
 import WavyButton from "@/components/buttons/wavy-button";
 import WavyTextSlideUpButton from "@/components/buttons/wavy-text-slideup-button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Gamepad2 } from "lucide-react";
 import FillUpButton1 from "@/components/buttons/fill-up-button1";
 import FillUpButton2 from "@/components/buttons/fill-up-button2";
 import GlowingTextSlideUpButton from "@/components/buttons/glowing-text-slideup-button";
@@ -22,6 +22,7 @@ import TextFillUpButton4 from "@/components/buttons/text-fill-up-button4";
 import Link from "next/link";
 import MagneticButton from "@/components/buttons/magnetic-button";
 import { cn } from "@/lib/utils/cn";
+import TextShimmerButton from "@/components/buttons/text-shimmer-button";
 
 const buttons = [
   {
@@ -152,6 +153,12 @@ const buttons = [
     component: <FlowchefButton>Original website</FlowchefButton>,
     title: "Flowchef Buttons",
     url: "/flowchef-buttons",
+    bg: "bg-neutral-950",
+  },
+  {
+    component: <TextShimmerButton icon={<Gamepad2 />}>Start new game</TextShimmerButton>,
+    title: "Text Shimmer Buttons",
+    url: "/text-shimmer-buttons",
     bg: "bg-neutral-950",
   },
 ];
